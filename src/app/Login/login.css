@@ -1,0 +1,132 @@
+body {
+  background-color: #fff;
+  color: #040b1b;
+  font-weight: 400;
+  font-family: 'Poppins', sans-serif;
+}
+
+.login-wrapper .login-container {
+  margin: 170px auto;
+  width: 100%;
+  max-width: 560px;
+}
+.login-wrapper .login-left {
+  flex-grow: 1;
+  padding: 0 30px;
+}
+.login-wrapper .login-left .logo {
+  margin-bottom: 35px;
+}
+.login-wrapper .login-left .logo img {
+  max-width: 54px;
+}
+.login-wrapper .login-left h5 {
+  font-size: 1rem;
+  margin-bottom: 25px;
+}
+.login-wrapper .login-left h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+.login-wrapper .login-left .selectbox {
+  margin-bottom: 30px;
+}
+.login-wrapper .login-left .selectbox select {
+  border: 1px solid #3586df;
+  background: #ebf1fa;
+  border-radius: 8px;
+  width: 100%;
+  padding: 17px 20px;
+}
+.login-wrapper .login-left .selectbox select:focus {
+  outline: none;
+}
+.login-wrapper .login-left button {
+  border-radius: 8px;
+  padding: 18px 35px;
+  border: 0;
+  color: #fff;
+  background: #3478f6;
+}
+.login-wrapper .login-left .separator {
+  margin: 50px 0;
+  padding: 0;
+  border-top: 1px solid #c4ccd8;
+}
+.login-wrapper .login-left p {
+  font-size: 13px;
+  color: #394256;
+  font-weight: 500;
+  margin-top: 5px;
+}
+.login-wrapper .login-right {
+  padding: 160px 60px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  max-width: 850px;
+  flex-shrink: 0;
+}
+.login-wrapper .login-right .login-right-content {
+  max-width: 724px;
+}
+.login-wrapper .login-right .login-right-content h2 {
+  color: #fff;
+  font-size: 38px;
+  line-height: 64px;
+  font-weight: 400;
+}
+.login-wrapper .login-right .login-right-content h6 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  margin-top: 15px;
+}
+.login-wrapper .login-right .login-right-content h6 span {
+  color: #a4abb5;
+}
+.login-wrapper .login-container .icons-lock {
+  font-size: 23px;
+  color: #394256;
+}
+@media (max-width: 1366px) {
+  .login-wrapper .login-right {
+    max-width: 600px;
+  }
+}
+@media (max-width: 1024px) {
+  .login-wrapper .login-container {
+    margin: 70px auto;
+  }
+  .login-wrapper .login-left {
+    order: 2;
+  }
+  .login-wrapper .login-right {
+    max-width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .login-wrapper .login-container {
+    margin: 50px auto 40px;
+    padding: 0 30px;
+  }
+  .login-wrapper .login-left h2 {
+    font-size: 24px;
+  }
+  .login-wrapper .login-left .selectbox select {
+    padding: 12px 20px;
+  }
+  .login-wrapper .login-left button {
+    padding: 15px 30px;
+  }
+  .login-wrapper .login-right {
+    padding: 50px 30px;
+  }
+  .login-wrapper .login-right .login-right-content h2 {
+    font-size: 30px;
+    line-height: 48px;
+  }
+  .login-wrapper .login-left .separator {
+    margin: 30px 0;
+  }
+}

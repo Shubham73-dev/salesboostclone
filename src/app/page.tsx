@@ -1,95 +1,107 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
 
-export default function Home() {
+import { useState } from "react";
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Text,
+  useInterval,
+  useBreakpointValue,
+  Button,
+} from "@chakra-ui/react";
+import moment from "moment";
+import WelcomeBg from "@/assets/images/welcome-bg.png";
+// import Search from "@/components/UI/Search";
+
+function Welcome() {
+  const [dateState, setDateState] = useState<string>(moment().format("hh:mm"));
+
+  useInterval(() => {
+    setDateState(moment().format("hh:mm"));
+  }, 30000);
+
+  const paddingValues = useBreakpointValue({
+    base: "30px 20px",
+    md: "30px",
+    lg: "65px 60px",
+  });
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+    <Box
+      className="welcome-wrapper"
+      minHeight="100vh"
+      bgImage={`url(${WelcomeBg})`}
+      backgroundSize="cover"
+      backgroundRepeat="no-repeat"
+      padding={paddingValues}
+    >
+      <Container>
+        <Flex align="center">
+          <Box flex="1">
+            <Box>
+              <Heading
+                fontSize="48px"
+                fontWeight="400"
+                lineHeight="1"
+                color="#000"
+              >
+                {dateState}
+              </Heading>
+              <Text
+                fontSize="20px"
+                fontWeight="400"
+                lineHeight="1"
+                color="#000"
+                marginTop="2px"
+              >
+                Welcome To Home
+              </Text>
+            </Box>
+          </Box>
+          <Box flex="1">
+            <Box textAlign="right">
+              <Text
+                color="#c4ccd8"
+                fontSize="16px"
+                fontWeight="400"
+                marginBottom="5px"
+              >
+                Quote of the Day
+              </Text>
+              <Text color="#000" fontSize="16px" fontWeight="400" margin="0">
+                “We grow fearless when we do the things we fear.”
+              </Text>
+            </Box>
+          </Box>
+        </Flex>
+      </Container>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      {/* <Search /> */}
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      <Container>
+        <Box marginTop="30px">
+          <Text className="recent-heading" fontSize="lg">
+            <Box as="span" className="icons-clock" marginRight="5px" />
+            RECENT SEARCHES
+          </Text>
+          <Flex flexWrap="wrap" marginTop="10px">
+            {[...Array(6)].map((_, index) => (
+              <Button
+                key={index}
+                className="button"
+                marginRight="4"
+                marginBottom="4"
+              >
+                Walmart TAAS
+              </Button>
+            ))}
+          </Flex>
+        </Box>
+      </Container>
+    </Box>
+  );
 }
+
+export default Welcome;
